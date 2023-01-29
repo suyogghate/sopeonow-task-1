@@ -20,32 +20,79 @@
       var options = {
         series: [
           {
-            data: [0, 1, 56, 11, 5, 2, 0, 0, 0, 0],
+            name: "discharges by interval",
             type: "column",
+            data: [0, 1, 56, 11, 5, 2, 0, 0, 0, 0],
           },
           {
-            data: [0, 14, 45, 9, 89, 78, 44, 69, 89],
+            name: "Social Media",
             type: "line",
+            data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16],
           },
         ],
         chart: {
-          height: 500,
-          width: 1000,
           type: "line",
+          height: 350,
+          width: 1000,
+        },
+        stroke: {
+          width: [0, 4],
         },
         dataLabels: {
           enabled: true,
           enabledOnSeries: [1],
         },
-        xaxis: {
-            type: 'datetime',
-            categories: ['0', '02:45', '03:45', '12:00'],
-          labels: {
-            datetimeFormatter: {
-              hour: 'HH:mm',
+        // labels: [
+        //   "12AM - 06AM",
+        //   "06AM - 08AM",
+        //   "08AM - 10AM",
+        //   "10AM - 12PM",
+        //   "12PM - 02PM",
+        //   "02PM - 04PM",
+        //   "04PM - 06PM",
+        //   "06PM - 08PM",
+        //   "08PM - 10PM",
+        //   "10PM - 12AM",
+        // ],
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            dataLabels: {
+              position: "bottom",
+              style: {
+                colors: ["#FF0000"],
+              },
             },
           },
         },
+        xaxis: {
+          categories: [
+            "12AM - 06AM",
+            "06AM - 08AM",
+            "08AM - 10AM",
+            "10AM - 12PM",
+            "12PM - 02PM",
+            "02PM - 04PM",
+            "04PM - 06PM",
+            "06PM - 08PM",
+            "08PM - 10PM",
+            "10PM - 12AM",
+          ],
+        },
+        yaxis: [
+          {
+            title: {
+              text: "Website Blog",
+            },
+          },
+          {
+            opposite: true,
+            title: {
+              text: "Social Media",
+            },
+          },
+        ],
+        colors: ["#FFC0CB"],
       };
 
       var chart = new ApexCharts(document.querySelector("#chart"), options);
